@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Retro Portfolio Design System - 70s/80s Inspired */
+
+@layer base {
+  :root {
+    /* Retro Color Palette */
+    --background: 45 100% 96%;
+    --foreground: 340 95% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 340 95% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 95% 15%;
+
+    /* Hot Pink Primary */
+    --primary: 328 100% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Pastel Purple Secondary */
+    --secondary: 270 50% 85%;
+    --secondary-foreground: 340 95% 15%;
+
+    /* Mint Green */
+    --accent: 158 58% 75%;
+    --accent-foreground: 340 95% 15%;
+
+    /* Sunny Yellow */
+    --warning: 51 100% 70%;
+    --warning-foreground: 340 95% 15%;
+
+    /* Electric Blue */
+    --info: 195 100% 50%;
+    --info-foreground: 0 0% 100%;
+
+    --muted: 45 40% 90%;
+    --muted-foreground: 340 50% 40%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 45 30% 85%;
+    --input: 45 30% 85%;
+    --ring: 328 100% 54%;
+
+    --radius: 1rem;
+
+    /* Custom Retro Gradients */
+    --gradient-retro: linear-gradient(135deg, hsl(328 100% 54%), hsl(195 100% 50%), hsl(51 100% 70%));
+    --gradient-pastel: linear-gradient(135deg, hsl(270 50% 85%), hsl(158 58% 75%));
+    --gradient-sunset: linear-gradient(135deg, hsl(51 100% 70%), hsl(328 100% 54%));
+    
+    /* Shadows with retro glow */
+    --shadow-sticker: 0 4px 15px hsl(328 100% 54% / 0.3);
+    --shadow-float: 0 8px 25px hsl(195 100% 50% / 0.2);
+    --shadow-glow: 0 0 30px hsl(51 100% 70% / 0.5);
+
+    /* Animations */
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-fredoka;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23FF1493'%3E%3Ccircle cx='12' cy='12' r='8'/%3E%3C/svg%3E") 12 12, auto;
+  }
+}
+
+@layer components {
+  /* Retro Typography */
+  .font-retro {
+    @apply font-fredoka font-bold tracking-wide;
+  }
+
+  .font-script {
+    @apply font-caveat font-medium;
+  }
+
+  /* Sticker Effects */
+  .sticker {
+    @apply relative inline-block rounded-full p-4 shadow-lg transform transition-all duration-300;
+    box-shadow: var(--shadow-sticker);
+  }
+
+  .sticker:hover {
+    @apply scale-110 rotate-12;
+  }
+
+  .sticker-pink {
+    @apply bg-gradient-to-br from-primary to-primary/80 text-primary-foreground;
+  }
+
+  .sticker-yellow {
+    @apply bg-gradient-to-br from-warning to-warning/80 text-warning-foreground;
+  }
+
+  .sticker-mint {
+    @apply bg-gradient-to-br from-accent to-accent/80 text-accent-foreground;
+  }
+
+  .sticker-purple {
+    @apply bg-gradient-to-br from-secondary to-secondary/80 text-secondary-foreground;
+  }
+
+  /* Floating Animations */
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .float-delay {
+    animation: float 3s ease-in-out infinite 1.5s;
+  }
+
+  /* Sparkle Effects */
+  .sparkle {
+    @apply relative;
+  }
+
+  .sparkle::before {
+    content: '✦';
+    @apply absolute -top-2 -right-2 text-warning animate-pulse;
+  }
+
+  /* Retro Gradients */
+  .bg-retro-gradient {
+    background: var(--gradient-retro);
+  }
+
+  .bg-pastel-gradient {
+    background: var(--gradient-pastel);
+  }
+
+  .bg-sunset-gradient {
+    background: var(--gradient-sunset);
+  }
+
+  /* Interactive Elements */
+  .hover-bounce:hover {
+    transform: translateY(-5px);
+    transition: var(--transition-bounce);
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@layer utilities {
+  /* Custom Shadows */
+  .shadow-sticker {
+    box-shadow: var(--shadow-sticker);
+  }
+
+  .shadow-float {
+    box-shadow: var(--shadow-float);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Transitions */
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+}
+
+/* Keyframe Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/80;
+}
